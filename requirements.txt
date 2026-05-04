@@ -1,0 +1,13 @@
+python-dotenv>=1.0.0
+numpy>=1.26
+qdrant-client>=1.9
+rank-bm25>=0.2.2
+underthesea>=6.7
+sentence-transformers>=2.7
+ragas>=0.1.10
+datasets>=2.18
+openai>=1.30
+pypdf>=4.0
+pdfplumber>=0.11
+pytest>=8.0
+ruff>=0.4

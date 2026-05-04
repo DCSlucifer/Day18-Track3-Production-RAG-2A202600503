@@ -1,3 +1,82 @@
 [
-  {"question": "hihi cả nhà tự tạo testset bằng cơm nhé", "ground_truth": "Không kịp tạo luôn"},
+  {
+    "question": "hihi cả nhà tự tạo testset bằng cơm nhé",
+    "ground_truth": "Không kịp tạo luôn"
+  },
+  {
+    "question": "AI là gì?",
+    "ground_truth": "AI là trí tuệ nhân tạo, giúp máy tính thực hiện các nhiệm vụ thường cần trí thông minh của con người."
+  },
+  {
+    "question": "Machine learning là gì?",
+    "ground_truth": "Machine learning là một nhánh của AI cho phép máy học từ dữ liệu để cải thiện kết quả mà không cần lập trình tường minh."
+  },
+  {
+    "question": "Deep learning là gì?",
+    "ground_truth": "Deep learning là kỹ thuật học máy sử dụng mạng nơ-ron nhiều lớp để xử lý dữ liệu phức tạp."
+  },
+  {
+    "question": "Dataset là gì?",
+    "ground_truth": "Dataset là tập hợp dữ liệu được dùng để huấn luyện, kiểm thử hoặc đánh giá mô hình."
+  },
+  {
+    "question": "Training data là gì?",
+    "ground_truth": "Training data là dữ liệu dùng để huấn luyện mô hình học máy."
+  },
+  {
+    "question": "Test set là gì?",
+    "ground_truth": "Test set là tập dữ liệu dùng để đánh giá hiệu suất của mô hình sau khi huấn luyện."
+  },
+  {
+    "question": "Validation set dùng để làm gì?",
+    "ground_truth": "Validation set được dùng để điều chỉnh tham số và chọn mô hình tốt nhất trong quá trình phát triển."
+  },
+  {
+    "question": "Overfitting là gì?",
+    "ground_truth": "Overfitting xảy ra khi mô hình học quá kỹ dữ liệu huấn luyện và hoạt động kém trên dữ liệu mới."
+  },
+  {
+    "question": "Underfitting là gì?",
+    "ground_truth": "Underfitting xảy ra khi mô hình quá đơn giản và không học được đầy đủ quy luật từ dữ liệu."
+  },
+  {
+    "question": "Accuracy là gì?",
+    "ground_truth": "Accuracy là tỷ lệ dự đoán đúng trên tổng số dự đoán của mô hình."
+  },
+  {
+    "question": "Precision là gì?",
+    "ground_truth": "Precision cho biết trong các kết quả được mô hình dự đoán là đúng, có bao nhiêu kết quả thật sự đúng."
+  },
+  {
+    "question": "Recall là gì?",
+    "ground_truth": "Recall cho biết mô hình tìm được bao nhiêu trường hợp đúng trong tổng số trường hợp đúng thực tế."
+  },
+  {
+    "question": "F1-score là gì?",
+    "ground_truth": "F1-score là chỉ số kết hợp giữa precision và recall, thường dùng khi dữ liệu bị mất cân bằng."
+  },
+  {
+    "question": "Prompt là gì?",
+    "ground_truth": "Prompt là câu lệnh hoặc nội dung đầu vào mà người dùng cung cấp cho mô hình AI để nhận phản hồi."
+  },
+  {
+    "question": "LLM là gì?",
+    "ground_truth": "LLM là mô hình ngôn ngữ lớn, được huấn luyện trên lượng dữ liệu văn bản rất lớn để hiểu và tạo ngôn ngữ tự nhiên."
+  },
+  {
+    "question": "RAG là gì?",
+    "ground_truth": "RAG là kỹ thuật kết hợp truy xuất thông tin với mô hình sinh văn bản để tạo câu trả lời dựa trên nguồn dữ liệu bên ngoài."
+  },
+  {
+    "question": "Embedding là gì?",
+    "ground_truth": "Embedding là cách biểu diễn văn bản, hình ảnh hoặc dữ liệu khác dưới dạng vector số để máy tính có thể xử lý."
+  },
+  {
+    "question": "Vector database là gì?",
+    "ground_truth": "Vector database là cơ sở dữ liệu chuyên lưu trữ và tìm kiếm các vector embedding."
+  },
+  {
+    "question": "Hallucination trong AI là gì?",
+    "ground_truth": "Hallucination là hiện tượng mô hình AI tạo ra thông tin sai hoặc không có căn cứ nhưng nghe có vẻ hợp lý."
+  }
 ]

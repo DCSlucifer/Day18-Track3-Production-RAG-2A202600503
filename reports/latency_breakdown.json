@@ -1,0 +1,33 @@
+{
+  "num_questions": 20,
+  "build_phase_ms": {
+    "chunking": 1.72,
+    "enrichment": 3.8,
+    "indexing": 10854.94,
+    "reranker_load": 4.32
+  },
+  "per_query_ms": {
+    "search": {
+      "avg_ms": 19.49,
+      "min_ms": 17.24,
+      "max_ms": 22.28,
+      "p50_ms": 19.48,
+      "n": 20
+    },
+    "rerank": {
+      "avg_ms": 1.25,
+      "min_ms": 0.95,
+      "max_ms": 2.51,
+      "p50_ms": 1.25,
+      "n": 20
+    },
+    "generation": {
+      "avg_ms": 0.02,
+      "min_ms": 0.01,
+      "max_ms": 0.04,
+      "p50_ms": 0.02,
+      "n": 20
+    }
+  },
+  "evaluation_ms": 29.1
+}

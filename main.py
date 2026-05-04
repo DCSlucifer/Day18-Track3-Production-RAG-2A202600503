@@ -9,7 +9,15 @@ Usage:
 
 import json
 import os
+import sys
 import time
+
+if hasattr(sys.stdout, "reconfigure"):
+    try:
+        sys.stdout.reconfigure(encoding="utf-8")
+        sys.stderr.reconfigure(encoding="utf-8")
+    except Exception:
+        pass
 
 
 def main():
@@ -30,13 +38,15 @@ def main():
     print("\n📌 STEP 2: Running Production Pipeline...")
     print("-" * 40)
     from src.pipeline import build_pipeline, evaluate_pipeline
-    search, reranker = build_pipeline()
-    prod_results = evaluate_pipeline(search, reranker)
+    search, reranker, parent_index, latency = build_pipeline()
+    evaluate_pipeline(search, reranker, parent_index, latency)
 
-    # Move reports to reports/
+    # Move legacy report paths to reports/ (pipeline đã ghi vào reports/ rồi)
     for f in ["ragas_report.json", "naive_baseline_report.json"]:
-        if os.path.exists(f):
+        if os.path.exists(f) and not os.path.exists(f"reports/{f}"):
             os.rename(f, f"reports/{f}")
+        elif os.path.exists(f):
+            os.remove(f)
 
     # Step 3: Comparison
     print("\n📌 STEP 3: Comparison")

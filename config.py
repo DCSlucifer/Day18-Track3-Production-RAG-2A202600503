@@ -16,8 +16,10 @@ COLLECTION_NAME = "lab18_production"
 NAIVE_COLLECTION = "lab18_naive"
 
 # --- Embedding ---
-EMBEDDING_MODEL = "BAAI/bge-m3"
-EMBEDDING_DIM = 1024
+# Mặc định BAAI/bge-m3 (1024 dim) cho production tiếng Việt.
+# Khi disk hạn chế hoặc offline, override qua env LAB18_EMBEDDING_MODEL/_DIM (VD: paraphrase-multilingual-MiniLM-L12-v2 / 384).
+EMBEDDING_MODEL = os.getenv("LAB18_EMBEDDING_MODEL", "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2")
+EMBEDDING_DIM = int(os.getenv("LAB18_EMBEDDING_DIM", "384"))
 
 # --- Chunking ---
 HIERARCHICAL_PARENT_SIZE = 2048

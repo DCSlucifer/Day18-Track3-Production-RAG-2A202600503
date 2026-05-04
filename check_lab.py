@@ -7,8 +7,22 @@ Chạy: python check_lab.py
 
 import json
 import os
+import re
 import sys
 import subprocess
+
+
+def configure_stdio() -> None:
+    """Use UTF-8 output on Windows consoles that default to legacy code pages."""
+    for stream in (sys.stdout, sys.stderr):
+        if hasattr(stream, "reconfigure"):
+            try:
+                stream.reconfigure(encoding="utf-8")
+            except Exception:
+                pass
+
+
+configure_stdio()
 
 
 def check_file(path: str, required: bool = True) -> bool:
@@ -58,17 +72,15 @@ def run_tests() -> tuple[int, int]:
             [sys.executable, "-m", "pytest", "tests/", "-v", "--tb=no", "-q"],
             capture_output=True, text=True, timeout=120,
         )
-        lines = result.stdout.strip().split("\n")
-        summary = lines[-1] if lines else ""
-        # Parse "X passed, Y failed" or "X passed"
+        summary = result.stdout + "\n" + result.stderr
+        # Parse pytest summaries such as "38 passed" or "2 failed, 36 passed".
         passed = total = 0
-        for part in summary.split(","):
-            part = part.strip()
-            if "passed" in part:
-                passed = int(part.split()[0])
-                total += passed
-            if "failed" in part:
-                total += int(part.split()[0])
+        for count, status in re.findall(r"(\d+)\s+(passed|failed|error|errors|skipped)", summary):
+            count_i = int(count)
+            if status == "passed":
+                passed += count_i
+            if status in {"passed", "failed", "error", "errors"}:
+                total += count_i
         return passed, total
     except Exception as e:
         print(f"  ⚠️  pytest error: {e}")

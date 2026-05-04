@@ -64,6 +64,23 @@ def test_hierarchical_valid_parent_ids():
     for c in children:
         assert c.parent_id in parent_ids, f"Child parent_id '{c.parent_id}' not in parents"
 
+
+def test_hierarchical_parent_ids_include_source_to_avoid_collisions():
+    first, _ = chunk_hierarchical(
+        "Alpha document content about AI.",
+        parent_size=200,
+        child_size=80,
+        metadata={"source": "ai.md"},
+    )
+    second, _ = chunk_hierarchical(
+        "Beta document content about RAG.",
+        parent_size=200,
+        child_size=80,
+        metadata={"source": "rag.md"},
+    )
+
+    assert first[0].metadata["parent_id"] != second[0].metadata["parent_id"]
+
 def test_hierarchical_children_smaller():
     parents, children = chunk_hierarchical(TEXT, parent_size=200, child_size=80)
     avg_p = sum(len(p.text) for p in parents) / max(len(parents), 1)
